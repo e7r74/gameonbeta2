@@ -1,0 +1,303 @@
+/* @import url("https://fonts.cdnfonts.com/css/credit-card");
+:root {
+  font-family: "Credit Card";
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  background: #0c0c0c;
+  overflow: hidden;
+  display: grid;
+  place-content: center;
+}
+
+@property --anim {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+.card {
+  --anim: 0;
+  --radius: 0.75rem;
+  width: 20rem;
+  height: 12rem;
+  border-radius: var(--radius);
+  position: relative;
+  display: grid;
+  transition: --anim 300ms ease;
+}
+
+.card:hover {
+  --anim: 1;
+}
+
+.cardglow, .cardbg, .cardborder, .numbers {
+  grid-area: 1/1/2/2;
+}
+
+.cardglow, .cardborder, .numbers {
+  background: conic-gradient(#ff3b3b, #ffa801, #ffeb3b, #6cff3b, #0fbcf9, #5d62fb, #eb3bff, #ff3b3b);
+}
+
+.cardglow {
+  border-radius: 0.25rem;
+  filter: blur(calc(0.375rem + var(--anim) * 0.25rem)) hue-rotate(calc(20deg * var(--anim)));
+}
+
+.cardborder {
+  border-radius: var(--radius);
+  filter: hue-rotate(calc(20deg * var(--anim)));
+}
+
+.cardbg {
+  margin: 0.125rem;
+  border-radius: calc(var(--radius) - 0.125rem);
+  background: none;
+  -webkit-backdrop-filter: contrast(50%) brightness(15%) blur(1.25rem);
+          backdrop-filter: contrast(50%) brightness(15%) blur(1.25rem);
+  box-shadow: inset rgba(0, 0, 0, 0.5) 0 0 0.625rem;
+  display: grid;
+}
+
+.logo {
+  position: absolute;
+  width: 3rem;
+  height: 2.5rem;
+  margin: 1.25rem;
+  -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 50% 100%, 0% 25%);
+          clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 50% 100%, 0% 25%);
+  -webkit-backdrop-filter: brightness(666%) contrast(200%);
+          backdrop-filter: brightness(666%) contrast(200%);
+}
+
+.numbers {
+  -webkit-background-clip: text;
+          background-clip: text;
+  z-index: 20;
+  color: transparent;
+  text-align: center;
+  padding-top: 37%;
+  font-size: 1.125rem;
+  filter: hue-rotate(calc(20deg * var(--anim)));
+}
+
+.visalogo {
+  position: absolute;
+  bottom: -2.75rem;
+  right: 0;
+  width: 4rem;
+  height: 4rem;
+  margin: 1.25rem;
+  -webkit-backdrop-filter: brightness(666%) contrast(200%);
+          backdrop-filter: brightness(666%) contrast(200%);
+  -webkit-clip-path: url(#svgPath);
+          clip-path: url(#svgPath);
+}
+
+.qr-code {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 6rem;
+  height: 6rem;
+  z-index: 30;
+  background: white;
+  padding: 0.25rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.qr-code img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+} */
+@import url("https://fonts.cdnfonts.com/css/credit-card");
+:root {
+  font-family: "Credit Card";
+}
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+}
+
+body {
+  min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	color: #f0f0f0;
+	background: #101522;
+	background-blend-mode: hard-light;
+	/* background-image: radial-gradient(circle at 20% 20%, #ffcc7066 10%, #ffcc7000 50%), radial-gradient(circle at 80% 80%, #0033ff66 10%, #0033ff00 50%),
+		radial-gradient(ellipse at 35% 70%, #00ff4866 10%, #00ff4800 50%), radial-gradient(ellipse at 70% 35%, #ff005d66 10%, #ff005d00 60%); */
+    /* background-image: radial-gradient(circle at 20% 20%, #6e5b3ab9 10%, #ffcc7000 50%), radial-gradient(circle at 20% 20%, #6e5b3ab9 10%, #ffcc7000 50%),
+    radial-gradient(ellipse at 70% 35%, #ff005d10 10%, #ff005d00 60%), radial-gradient(ellipse at 70% 35%, #ff005d66 10%, #ff005d00 60%); */
+    background-image: radial-gradient(circle at 20% 20%, #6e5b3ab9 10%, #ffcc7000 50%), radial-gradient(circle at 20% 20%, #6e5b3ab9 10%, #ffcc7000 50%),
+    radial-gradient(ellipse at 70% 35%, #ff005d10 10%, #ff005d00 60%), radial-gradient(ellipse at 70% 35%, #2600ff77 10%, #ff005d00 60%);
+	background-size: 250% 250%;
+	animation: background-animation 30s infinite;
+}
+
+@property --anim {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+.card {
+  --anim: 0;
+  --radius: 0.75rem;
+  width: 20rem;
+  height: 12rem;
+  border-radius: var(--radius);
+  position: relative;
+  display: grid;
+  transition: --anim 300ms ease;
+}
+
+.card:hover {
+  --anim: 1;
+}
+
+.cardglow, .cardbg, .cardborder, .numbers {
+  grid-area: 1/1/2/2;
+}
+
+.cardglow, .cardborder, .numbers {
+  background: conic-gradient(#26eb61, #cbde61);
+}
+
+.cardglow {
+  border-radius: 0.25rem;
+  filter: blur(calc(0.375rem + var(--anim) * 0.25rem)) hue-rotate(calc(20deg * var(--anim)));
+}
+
+.cardborder {
+  border-radius: var(--radius);
+  filter: hue-rotate(calc(20deg * var(--anim)));
+}
+
+.cardbg {
+  margin: 0.125rem;
+  border-radius: calc(var(--radius) - 0.125rem);
+  background: none;
+  -webkit-backdrop-filter: contrast(50%) brightness(15%) blur(1.25rem);
+          backdrop-filter: contrast(50%) brightness(15%) blur(1.25rem);
+  box-shadow: inset rgba(0, 0, 0, 0.5) 0 0 0.625rem;
+  display: grid;
+}
+
+.logo {
+  position: absolute;
+  width: 3rem;
+  height: 2.5rem;
+  margin: 1.25rem;
+  -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 50% 100%, 0% 25%);
+          clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 50% 100%, 0% 25%);
+  -webkit-backdrop-filter: brightness(666%) contrast(200%);
+          backdrop-filter: brightness(666%) contrast(200%);
+}
+
+.logo-text {
+  font-size: 0.75rem; /* Adjust font size as needed */
+  color: white;
+  text-align: center;
+  padding-top: 0.25rem; /* Add some padding to move it down slightly */
+}
+
+.numbers {
+  -webkit-background-clip: text;
+          background-clip: text;
+  z-index: 20;
+  color: transparent;
+  text-align: center;
+  padding-top: 37%;
+  font-size: 1.125rem;
+  filter: hue-rotate(calc(20deg * var(--anim)));
+}
+
+.visalogo {
+  position: absolute;
+  bottom: -2.75rem;
+  right: 0;
+  width: 4rem;
+  height: 4rem;
+  margin: 1.25rem;
+  -webkit-backdrop-filter: brightness(666%) contrast(200%);
+          backdrop-filter: brightness(666%) contrast(200%);
+  -webkit-clip-path: url(#svgPath);
+          clip-path: url(#svgPath);
+}
+
+.qr-code {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 6rem;
+  height: 6rem;
+  z-index: 30;
+  background: white;
+  padding: 0.25rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.qr-code.expanded {
+  width: 70%;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  background: white;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+}
+
+.qr-code img {
+  width: 100%;
+  height: 100%;
+}
+
+.whatsapp-button {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+.whatsapp-button i {
+  font-size: 2rem; /* Adjust font size as needed */
+  line-height: 4.5rem; /* Center the icon vertically */
+}
